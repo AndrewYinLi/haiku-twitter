@@ -22,7 +22,9 @@ export class home extends Component {
   }
   render() {
     let recentHaikusMarkup = this.state.haikus ? (
-      this.state.haikus.map(haiku => <Haiku haiku={haiku} />)
+      this.state.haikus.map(haiku => (
+        <Haiku key={haiku.haikuID} haiku={haiku} />
+      ))
     ) : (
       <p>Loading...</p>
     );
