@@ -8,6 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 
 import AppIcon from "../images/cherry-blossom.png";
@@ -30,7 +32,8 @@ const styles = {
   },
   customError: {
     color: "red",
-    fontSize: "0.8rem"
+    fontSize: "0.8rem",
+    marginTop: 10
   }
 };
 
@@ -127,6 +130,10 @@ export class login extends Component {
             >
               Login
             </Button>
+            <br />
+            <small>
+              Don't have account? Sign up <Link to="/signip">here</Link>.
+            </small>
           </form>
         </Grid>
         <Grid item sm />
