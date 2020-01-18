@@ -30,6 +30,7 @@ const styles = {
   },
   button: {
     marginTop: 20,
+    marginBottom: 20,
     position: "relative"
   },
   customError: {
@@ -141,7 +142,7 @@ export class login extends Component {
             </Button>
             <br />
             <small>
-              Don't have account? Sign up <Link to="/signip">here</Link>.
+              Don't have an account? Sign up <Link to="/signup">here</Link>.
             </small>
           </form>
         </Grid>
