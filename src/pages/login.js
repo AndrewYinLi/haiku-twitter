@@ -25,36 +25,17 @@ export class login extends Component {
     this.state = {
       email: "",
       password: "",
-      loading: false,
       errors: {}
     };
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({
-      loading: true
-    });
+
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
-    axios
-      .post("/login", userData)
-      .then(res => {
-        console.log(res.data);
-        localStorage.setItem("FBIDToken", `Bearer ${res.data.token}`);
-        this.setState({
-          loading: false
-        });
-        this.props.history.push("/");
-      })
-      .catch(err => {
-        this.setState({
-          errors: err.response.data,
-          loading: false
-        });
-      });
   };
 
   handleChange = event => {
