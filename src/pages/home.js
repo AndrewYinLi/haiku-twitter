@@ -3,8 +3,9 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
 import Haiku from "../components/Haiku";
+import Profile from "../components/Profile";
 
-export class home extends Component {
+class home extends Component {
   state = {
     haikus: null
   };
@@ -34,7 +35,7 @@ export class home extends Component {
           {recentHaikusMarkup}
         </Grid>
         <Grid item sm={4} xs={12}>
-          <p>profile</p>
+          <Profile />
         </Grid>
       </Grid>
     );

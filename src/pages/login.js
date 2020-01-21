@@ -21,7 +21,7 @@ const styles = theme => ({
   ...theme.spreadable
 });
 
-export class login extends Component {
+class login extends Component {
   constructor() {
     super();
     this.state = {

@@ -25,7 +25,7 @@ const styles = {
   }
 };
 
-export class Haiku extends Component {
+class Haiku extends Component {
   render() {
     dayjs.extend(relativeTime);
     const {
