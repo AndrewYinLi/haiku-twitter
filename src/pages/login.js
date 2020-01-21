@@ -11,8 +11,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { Link } from "react-router-dom";
 
-//import axios from "axios";
-
 import AppIcon from "../images/cherry-blossom.png";
 
 // redux
