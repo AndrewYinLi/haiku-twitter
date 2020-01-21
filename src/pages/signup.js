@@ -108,7 +108,7 @@ export class signup extends Component {
               id="confirmPassword"
               name="confirmPassword"
               type="password"
-              label="ConfirmPassword"
+              label="Confirm Password"
               className={classes.textField}
               helperText={errors.confirmPassword}
               error={errors.password ? true : false}
@@ -120,7 +120,7 @@ export class signup extends Component {
               id="userHandle"
               name="userHandle"
               type="text"
-              label="UserHandle"
+              label="Username"
               className={classes.textField}
               helperText={errors.userHandle}
               error={errors.userHandle ? true : false}
