@@ -10,8 +10,6 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import MuiLink from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
 
 //icons TODO: change icons
 import LocationOn from "@material-ui/icons/LocationOn";
@@ -23,6 +21,7 @@ import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 import { connect } from "react-redux";
 
 import { logoutUser, uploadImage } from "../redux/actions/userActions";
+import WrappedButton from "../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable
@@ -72,11 +71,14 @@ class Profile extends Component {
                 hidden="hidden"
                 onChange={this.handleImageChange}
               />
-              <Tooltip title="Edit profile picture" placement="top">
-                <IconButton onClick={this.handleEditPicture} className="button">
-                  <EditIcon color="primary"></EditIcon>
-                </IconButton>
-              </Tooltip>
+
+              <WrappedButton
+                tooltipTitle="Edit profile picture"
+                onClick={this.handleEditPicture}
+                buttonClassName="button"
+              >
+                <EditIcon color="secondary"></EditIcon>
+              </WrappedButton>
             </div>
             <hr />
             <div className="profile-details">
@@ -110,11 +112,10 @@ class Profile extends Component {
               <CalendarToday color="primary" />{" "}
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
-            <Tooltip title="Logout" placement="top">
-              <IconButton onClick={this.handleLogout}>
-                <KeyboardReturn color="primary" />
-              </IconButton>
-            </Tooltip>
+
+            <WrappedButton tooltipTitle="Logout" onClick={this.handleLogout}>
+              <KeyboardReturn color="secondary" />
+            </WrappedButton>
             <EditDetails />
           </div>
         </Paper>

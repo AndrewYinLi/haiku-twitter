@@ -15,6 +15,7 @@ import EditIcon from "@material-ui/icons/Edit";
 
 import { connect } from "react-redux";
 import { editUserDetails } from "../redux/actions/userActions";
+import WrappedButton from "../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable
@@ -73,11 +74,14 @@ class EditDetails extends Component {
     return (
       <div>
         <Fragment>
-          <Tooltip title="Edit details" placement="top">
-            <IconButton onClick={this.handleOpen} className={classes.button}>
-              <EditIcon color="primary" />
-            </IconButton>
-          </Tooltip>
+          <WrappedButton
+            tooltipTitle="Edit Details"
+            onClick={this.handleOpen}
+            buttonClassName={classes.button}
+          >
+            <EditIcon color="secondary" />
+          </WrappedButton>
+
           <Dialog
             open={this.state.open}
             onClose={this.handleClose}
