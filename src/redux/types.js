@@ -13,3 +13,4 @@ export const SET_HAIKUS = "SET_HAIKUS";
 export const SET_HAIKU = "SET_HAIKU";
 export const LIKE_HAIKU = "LIKE_HAIKU";
 export const UNLIKE_HAIKU = "UNLIKE_HAIKU";
+export const DELETE_HAIKU = "DELETE_HAIKU";

@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
 import WrappedButton from "../util/WrappedButton";
+import DeleteHaiku from "./DeleteHaiku";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import Card from "@material-ui/core/Card";
@@ -69,8 +70,12 @@ class Haiku extends Component {
         likeCount,
         commentCount
       },
-      user: { authenticated }
+      user: {
+        authenticated,
+        credentials: { userHandle }
+      }
     } = this.props;
+
     const likeButton = !authenticated ? (
       <WrappedButton tooltipTitle="Like">
         <Link to="/login">
@@ -86,6 +91,12 @@ class Haiku extends Component {
         <FavoriteBorderIcon color="primary" />
       </WrappedButton>
     );
+
+    const deleteButton =
+      authenticated && userHandle === userHandle ? (
+        <DeleteHaiku haikuID={haikuID} />
+      ) : null;
+
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -102,6 +113,7 @@ class Haiku extends Component {
           >
             {userHandle}
           </Typography>
+          {deleteButton}
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>

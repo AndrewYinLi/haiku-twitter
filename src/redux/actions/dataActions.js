@@ -1,4 +1,10 @@
-import { SET_HAIKUS, LOADING_DATA, LIKE_HAIKU, UNLIKE_HAIKU } from "../types";
+import {
+  SET_HAIKUS,
+  LOADING_DATA,
+  LIKE_HAIKU,
+  UNLIKE_HAIKU,
+  DELETE_HAIKU
+} from "../types";
 import axios from "axios";
 
 export const getHaikus = () => dispatch => {
@@ -45,4 +51,13 @@ export const unlikeHaiku = haikuID => dispatch => {
     .catch(err => {
       console.log(err);
     });
+};
+
+export const deleteHaiku = haikuID => dispatch => {
+  axios
+    .delete(`/haiku/${haikuID}`)
+    .then(() => {
+      dispatch({ type: DELETE_HAIKU, payload: haikuID });
+    })
+    .catch(err => console.log(err));
 };

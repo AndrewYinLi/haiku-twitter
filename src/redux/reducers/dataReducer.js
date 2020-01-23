@@ -1,4 +1,10 @@
-import { SET_HAIKUS, LOADING_DATA, LIKE_HAIKU, UNLIKE_HAIKU } from "../types";
+import {
+  SET_HAIKUS,
+  LOADING_DATA,
+  LIKE_HAIKU,
+  UNLIKE_HAIKU,
+  DELETE_HAIKU
+} from "../types";
 
 const initialState = {
   haikus: [],
@@ -25,6 +31,12 @@ export default function(state = initialState, action) {
         haiku => haiku.haikuID === action.payload.haikuID
       );
       state.haikus[index] = action.payload;
+      return {
+        ...state
+      };
+    case DELETE_HAIKU:
+      index = state.haikus.findIndex(haiku => haiku.haikuID === action.payload);
+      state.haikus.splice(index, 1);
       return {
         ...state
       };
