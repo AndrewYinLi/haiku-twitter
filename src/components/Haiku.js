@@ -4,12 +4,21 @@ import { Link } from "react-router-dom";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import PropTypes from "prop-types";
+import WrappedButton from "../util/WrappedButton";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import { Typography } from "@material-ui/core";
+
+import ChatIcon from "@material-ui/icons/Chat";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+
+import { connect } from "react-redux";
+import { likeHaiku, unlikeHaiku } from "../redux/actions/dataActions";
 
 const styles = {
   card: {
@@ -26,6 +35,27 @@ const styles = {
 };
 
 class Haiku extends Component {
+  likedHaiku = () => {
+    if (
+      this.props.user.likes &&
+      this.props.user.likes.find(
+        like => like.haikuID === this.props.haiku.haikuID
+      )
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  likeHaiku = () => {
+    this.props.likeHaiku(this.props.haiku.haikuID);
+  };
+
+  unlikeHaiku = () => {
+    this.props.unlikeHaiku(this.props.haiku.haikuID);
+  };
+
   render() {
     dayjs.extend(relativeTime);
     const {
@@ -38,8 +68,24 @@ class Haiku extends Component {
         haikuID,
         likeCount,
         commentCount
-      }
+      },
+      user: { authenticated }
     } = this.props;
+    const likeButton = !authenticated ? (
+      <WrappedButton tooltipTitle="Like">
+        <Link to="/login">
+          <FavoriteBorderIcon color="primary" />
+        </Link>
+      </WrappedButton>
+    ) : this.likedHaiku() ? (
+      <WrappedButton tooltipTitle="Unlike" onClick={this.unlikeHaiku}>
+        <FavoriteIcon color="primary" />
+      </WrappedButton>
+    ) : (
+      <WrappedButton tooltipTitle="Like" onClick={this.likeHaiku}>
+        <FavoriteBorderIcon color="primary" />
+      </WrappedButton>
+    );
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -60,10 +106,36 @@ class Haiku extends Component {
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant="body1">{body}</Typography>
+          {likeButton}
+          <span>{likeCount} likes</span>
+          <WrappedButton tooltipTitle="Comments">
+            <ChatIcon color="primary" />
+          </WrappedButton>
+          <span>{commentCount} comments</span>
         </CardContent>
       </Card>
     );
   }
 }
 
-export default withStyles(styles)(Haiku);
+Haiku.propTypes = {
+  likeHaiku: PropTypes.func.isRequired,
+  unlikeHaiku: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  haiku: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapActionsToProps = {
+  likeHaiku,
+  unlikeHaiku
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(Haiku));
