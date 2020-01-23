@@ -1,31 +1,21 @@
 import React, { Component } from "react";
-import axios from "axios";
 import Grid from "@material-ui/core/Grid";
+import PropTypes from "prop-types";
 
 import Haiku from "../components/Haiku";
 import Profile from "../components/Profile";
 
+import { connect } from "react-redux";
+import { getHaikus } from "../redux/actions/dataActions";
+
 class home extends Component {
-  state = {
-    haikus: null
-  };
   componentDidMount() {
-    axios
-      .get("/haikus")
-      .then(res => {
-        this.setState({
-          haikus: res.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.getHaikus();
   }
   render() {
-    let recentHaikusMarkup = this.state.haikus ? (
-      this.state.haikus.map(haiku => (
-        <Haiku key={haiku.haikuID} haiku={haiku} />
-      ))
+    const { haikus, loading } = this.props.data;
+    let recentHaikusMarkup = !loading ? (
+      haikus.map(haiku => <Haiku key={haiku.haikuID} haiku={haiku} />)
     ) : (
       <p>Loading...</p>
     );
@@ -42,4 +32,13 @@ class home extends Component {
   }
 }
 
-export default home;
+home.propTypes = {
+  getHaikus: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  data: state.data
+});
+
+export default connect(mapStateToProps, { getHaikus })(home);

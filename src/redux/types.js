@@ -7,4 +7,9 @@ export const LOADING_USER = "LOADING_USER";
 export const SET_ERRORS = "SET_ERRORS";
 export const LOADING_UI = "LOADING_UI";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const LOADING_DATA = "LOADING_DATA";
 // Data reducer types
+export const SET_HAIKUS = "SET_HAIKUS";
+export const SET_HAIKU = "SET_HAIKU";
+export const LIKE_HAIKU = "LIKE_HAIKU";
+export const UNLIKE_HAIKU = "UNLIKE_HAIKU";

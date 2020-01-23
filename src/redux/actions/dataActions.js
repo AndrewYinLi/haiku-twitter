@@ -18,3 +18,31 @@ export const getHaikus = () => dispatch => {
       });
     });
 };
+
+export const likeHaiku = haikuID => dispatch => {
+  axios
+    .get(`/haiku/${haikuID}/like`)
+    .then(res => {
+      dispatch({
+        type: LIKE_HAIKU,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const unlikeHaiku = haikuID => dispatch => {
+  axios
+    .get(`/haiku/${haikuID}/unlike`)
+    .then(res => {
+      dispatch({
+        type: UNLIKE_HAIKU,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};

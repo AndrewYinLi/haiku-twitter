@@ -9,8 +9,8 @@ import jwtDecode from "jwt-decode";
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { SET_AUTHENTICATED } from "./redux/types";
-import { logoutUser, getUserData } from "./redux/actions/userActions";
+import { SET_AUTHENTICATED, SET_UNAUTHENTICATED } from "./redux/types";
+import { getUserData } from "./redux/actions/userActions";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -25,12 +25,13 @@ import axios from "axios";
 
 const theme = createMuiTheme(themeFile);
 
-let authenticated;
 const token = localStorage.FBIDToken;
 if (token) {
   const decodedToken = jwtDecode(token);
   if (decodedToken.exp * 1000 < Date.now()) {
-    store.dispatch(logoutUser);
+    localStorage.removeItem("FBIDToken");
+    delete axios.defaults.headers.common["Authorization"];
+    store.dispatch({ type: SET_UNAUTHENTICATED });
     window.location.href = "/login";
   } else {
     store.dispatch({ type: SET_AUTHENTICATED });

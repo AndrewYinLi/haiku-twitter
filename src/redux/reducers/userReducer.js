@@ -2,7 +2,9 @@ import {
   SET_USER,
   LOADING_USER,
   SET_AUTHENTICATED,
-  SET_UNAUTHENTICATED
+  SET_UNAUTHENTICATED,
+  LIKE_HAIKU,
+  UNLIKE_HAIKU
 } from "../types";
 
 const initialState = {
@@ -32,6 +34,24 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: true
+      };
+    case LIKE_HAIKU:
+      return {
+        ...state,
+        likes: [
+          ...state.likes,
+          {
+            userHandle: state.credentials.userHandle,
+            haikuID: action.payload.haikuID
+          }
+        ]
+      };
+    case UNLIKE_HAIKU:
+      return {
+        ...state,
+        likes: state.likes.filter(
+          like => like.haikuID !== action.payload.haikuID
+        )
       };
     default:
       return state;
