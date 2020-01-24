@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import PostHaiku from "./PostHaiku";
+
 import PropTypes from "prop-types";
 
 // MUI
@@ -11,7 +13,6 @@ import Button from "@material-ui/core/Button";
 //import Tooltip from "@material-ui/core/Tooltip";
 
 // icons
-import AddIcon from "@material-ui/icons/Add";
 import HomeIcon from "@material-ui/icons/Home";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
@@ -25,9 +26,7 @@ class Navbar extends Component {
         <Toolbar className="nav-container">
           {authenticated ? (
             <Fragment>
-              <WrappedButton tooltipTitle="Compose a haiku!">
-                <AddIcon color="secondary" />
-              </WrappedButton>
+              <PostHaiku />
               <Link to="/">
                 <WrappedButton tooltipTitle="Home">
                   <HomeIcon color="secondary" />

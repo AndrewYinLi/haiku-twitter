@@ -3,7 +3,8 @@ import {
   LOADING_DATA,
   LIKE_HAIKU,
   UNLIKE_HAIKU,
-  DELETE_HAIKU
+  DELETE_HAIKU,
+  POST_HAIKU
 } from "../types";
 
 const initialState = {
@@ -41,6 +42,11 @@ export default function(state = initialState, action) {
       state.haikus.splice(deleteIndex, 1);
       return {
         ...state
+      };
+    case POST_HAIKU:
+      return {
+        ...state,
+        haikus: [action.payload.resHaiku, ...state.haikus]
       };
     default:
       return state;

@@ -3,7 +3,11 @@ import {
   LOADING_DATA,
   LIKE_HAIKU,
   UNLIKE_HAIKU,
-  DELETE_HAIKU
+  DELETE_HAIKU,
+  POST_HAIKU,
+  SET_ERRORS,
+  CLEAR_ERRORS,
+  LOADING_UI
 } from "../types";
 import axios from "axios";
 
@@ -21,6 +25,27 @@ export const getHaikus = () => dispatch => {
       dispatch({
         type: SET_HAIKUS,
         payload: []
+      });
+    });
+};
+
+export const postHaiku = newHaiku => dispatch => {
+  dispatch({ type: LOADING_UI });
+  axios
+    .post("/haiku", newHaiku)
+    .then(res => {
+      dispatch({
+        type: POST_HAIKU,
+        payload: res.data
+      });
+      dispatch({
+        type: CLEAR_ERRORS
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data
       });
     });
 };
