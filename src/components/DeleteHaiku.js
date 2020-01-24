@@ -16,7 +16,13 @@ import { connect } from "react-redux";
 
 import { deleteHaiku } from "../redux/actions/dataActions";
 
-const styles = {};
+const styles = {
+  deleteButton: {
+    position: "absolute",
+    left: "90%",
+    top: "10%"
+  }
+};
 
 class DeleteHaiku extends Component {
   state = {

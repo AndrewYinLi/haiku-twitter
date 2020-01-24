@@ -23,6 +23,7 @@ import { likeHaiku, unlikeHaiku } from "../redux/actions/dataActions";
 
 const styles = {
   card: {
+    position: "relative",
     display: "flex",
     marginBottom: 20
   },
@@ -70,10 +71,7 @@ class Haiku extends Component {
         likeCount,
         commentCount
       },
-      user: {
-        authenticated,
-        credentials: { userHandle }
-      }
+      user: { authenticated, credentials }
     } = this.props;
 
     const likeButton = !authenticated ? (
@@ -93,7 +91,7 @@ class Haiku extends Component {
     );
 
     const deleteButton =
-      authenticated && userHandle === userHandle ? (
+      authenticated && userHandle === credentials.userHandle ? (
         <DeleteHaiku haikuID={haikuID} />
       ) : null;
 

@@ -27,16 +27,18 @@ export default function(state = initialState, action) {
       };
     case LIKE_HAIKU:
     case UNLIKE_HAIKU:
-      let index = state.haikus.findIndex(
+      let unlikeIndex = state.haikus.findIndex(
         haiku => haiku.haikuID === action.payload.haikuID
       );
-      state.haikus[index] = action.payload;
+      state.haikus[unlikeIndex] = action.payload;
       return {
         ...state
       };
     case DELETE_HAIKU:
-      index = state.haikus.findIndex(haiku => haiku.haikuID === action.payload);
-      state.haikus.splice(index, 1);
+      let deleteIndex = state.haikus.findIndex(
+        haiku => haiku.haikuID === action.payload
+      );
+      state.haikus.splice(deleteIndex, 1);
       return {
         ...state
       };
