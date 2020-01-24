@@ -4,7 +4,8 @@ import {
   LIKE_HAIKU,
   UNLIKE_HAIKU,
   DELETE_HAIKU,
-  POST_HAIKU
+  POST_HAIKU,
+  SET_HAIKU
 } from "../types";
 
 const initialState = {
@@ -47,6 +48,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         haikus: [action.payload.resHaiku, ...state.haikus]
+      };
+    case SET_HAIKU:
+      return {
+        ...state,
+        haiku: action.payload
       };
     default:
       return state;

@@ -7,6 +7,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
 import WrappedButton from "../util/WrappedButton";
 import DeleteHaiku from "./DeleteHaiku";
+import HaikuDialog from "./HaikuDialog";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import Card from "@material-ui/core/Card";
@@ -122,6 +123,7 @@ class Haiku extends Component {
             <ChatIcon color="primary" />
           </WrappedButton>
           <span>{commentCount} comments</span>
+          <HaikuDialog haikuID={haikuID} userHandle={userHandle} />
         </CardContent>
       </Card>
     );

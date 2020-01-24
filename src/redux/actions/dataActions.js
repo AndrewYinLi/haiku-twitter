@@ -7,9 +7,25 @@ import {
   POST_HAIKU,
   SET_ERRORS,
   CLEAR_ERRORS,
-  LOADING_UI
+  LOADING_UI,
+  SET_HAIKU,
+  STOP_LOADING_UI
 } from "../types";
 import axios from "axios";
+
+export const getHaiku = haikuID => dispatch => {
+  dispatch({ type: LOADING_UI });
+  axios
+    .get(`/haiku/${haikuID}`)
+    .then(res => {
+      dispatch({
+        type: SET_HAIKU,
+        payload: res.data
+      });
+      dispatch({ type: STOP_LOADING_UI });
+    })
+    .catch(err => console.log(err));
+};
 
 export const getHaikus = () => dispatch => {
   dispatch({ type: LOADING_DATA });
