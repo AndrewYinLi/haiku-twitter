@@ -21,6 +21,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import { connect } from "react-redux";
 import { likeHaiku, unlikeHaiku } from "../redux/actions/dataActions";
+import { LikeButton } from "./LikeButton";
 
 const styles = {
   card: {
@@ -75,22 +76,6 @@ class Haiku extends Component {
       user: { authenticated, credentials }
     } = this.props;
 
-    const likeButton = !authenticated ? (
-      <WrappedButton tooltipTitle="Like">
-        <Link to="/login">
-          <FavoriteBorderIcon color="primary" />
-        </Link>
-      </WrappedButton>
-    ) : this.likedHaiku() ? (
-      <WrappedButton tooltipTitle="Unlike" onClick={this.unlikeHaiku}>
-        <FavoriteIcon color="primary" />
-      </WrappedButton>
-    ) : (
-      <WrappedButton tooltipTitle="Like" onClick={this.likeHaiku}>
-        <FavoriteBorderIcon color="primary" />
-      </WrappedButton>
-    );
-
     const deleteButton =
       authenticated && userHandle === credentials.userHandle ? (
         <DeleteHaiku haikuID={haikuID} />
@@ -117,7 +102,7 @@ class Haiku extends Component {
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant="body1">{body}</Typography>
-          {likeButton}
+          <LikeButton haikuID={haikuID} {...this.props} />
           <span>{likeCount} likes</span>
           <WrappedButton tooltipTitle="Comments">
             <ChatIcon color="primary" />
