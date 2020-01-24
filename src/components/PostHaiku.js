@@ -13,21 +13,24 @@ import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
 
 import { connect } from "react-redux";
-import { postHaiku } from "../redux/actions/dataActions";
+import { postHaiku, clearErrors } from "../redux/actions/dataActions";
 import WrappedButton from "../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable,
   submitButton: {
-    position: "relative"
+    position: "relative",
+    float: "right",
+    marginTop: 10,
+    marginBottom: 10
   },
   progressSpinner: {
     position: "absolute"
   },
   closeButton: {
     position: "absolute",
-    left: "90%",
-    top: "10%"
+    left: "91%",
+    top: "3%"
   }
 });
 
@@ -51,6 +54,7 @@ class PostHaiku extends Component {
     this.setState({ open: true });
   };
   handleClose = () => {
+    this.props.clearErrors();
     this.setState({ open: false, errors: {} });
   };
   handleChange = event => {
@@ -129,13 +133,14 @@ class PostHaiku extends Component {
 
 PostHaiku.propTypes = {
   postHaiku: PropTypes.func.isRequired,
-  UI: PropTypes.object.isRequired
+  UI: PropTypes.object.isRequired,
+  clearErrors: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   UI: state.UI
 });
 
-export default connect(mapStateToProps, { postHaiku })(
+export default connect(mapStateToProps, { postHaiku, clearErrors })(
   withStyles(styles)(PostHaiku)
 );
