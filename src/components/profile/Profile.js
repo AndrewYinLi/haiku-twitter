@@ -20,8 +20,8 @@ import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 
 import { connect } from "react-redux";
 
-import { logoutUser, uploadImage } from "../redux/actions/userActions";
-import WrappedButton from "../util/WrappedButton";
+import { logoutUser, uploadImage } from "../../redux/actions/userActions";
+import WrappedButton from "../../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable

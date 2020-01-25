@@ -6,8 +6,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 // REdux
 import { connect } from "react-redux";
-import { likeHaiku, unlikeHaiku } from "../redux/actions/dataActions";
-import WrappedButton from "../util/WrappedButton";
+import { likeHaiku, unlikeHaiku } from "../../redux/actions/dataActions";
+import WrappedButton from "../../util/WrappedButton";
 
 export class LikeButton extends Component {
   likedHaiku = () => {

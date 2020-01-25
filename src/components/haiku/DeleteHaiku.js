@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
-import WrappedButton from "../util/WrappedButton";
+import WrappedButton from "../../util/WrappedButton";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button";
@@ -14,7 +14,7 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 import { connect } from "react-redux";
 
-import { deleteHaiku } from "../redux/actions/dataActions";
+import { deleteHaiku } from "../../redux/actions/dataActions";
 
 const styles = {
   deleteButton: {

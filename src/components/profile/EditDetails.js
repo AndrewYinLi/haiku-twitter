@@ -14,8 +14,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import EditIcon from "@material-ui/icons/Edit";
 
 import { connect } from "react-redux";
-import { editUserDetails } from "../redux/actions/userActions";
-import WrappedButton from "../util/WrappedButton";
+import { editUserDetails } from "../../redux/actions/userActions";
+import WrappedButton from "../../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable

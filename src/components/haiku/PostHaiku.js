@@ -13,8 +13,8 @@ import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
 
 import { connect } from "react-redux";
-import { postHaiku, clearErrors } from "../redux/actions/dataActions";
-import WrappedButton from "../util/WrappedButton";
+import { postHaiku, clearErrors } from "../../redux/actions/dataActions";
+import WrappedButton from "../../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable,

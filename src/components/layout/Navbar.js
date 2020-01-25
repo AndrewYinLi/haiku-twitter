@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import PostHaiku from "./PostHaiku";
+import PostHaiku from "../haiku/PostHaiku";
 
 import PropTypes from "prop-types";
 
@@ -16,7 +16,7 @@ import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
-import WrappedButton from "../util/WrappedButton";
+import WrappedButton from "../../util/WrappedButton";
 
 class Navbar extends Component {
   render() {

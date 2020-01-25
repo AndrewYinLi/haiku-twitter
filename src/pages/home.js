@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
 
-import Haiku from "../components/Haiku";
-import Profile from "../components/Profile";
+import Haiku from "../components/haiku/Haiku";
+import Profile from "../components/profile/Profile";
 
 import { connect } from "react-redux";
 import { getHaikus } from "../redux/actions/dataActions";

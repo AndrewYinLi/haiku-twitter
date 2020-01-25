@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
-import WrappedButton from "../util/WrappedButton";
+import WrappedButton from "../../util/WrappedButton";
 import DeleteHaiku from "./DeleteHaiku";
 import HaikuDialog from "./HaikuDialog";
 
@@ -20,7 +20,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import { connect } from "react-redux";
-import { likeHaiku, unlikeHaiku } from "../redux/actions/dataActions";
+import { likeHaiku, unlikeHaiku } from "../../redux/actions/dataActions";
 import { LikeButton } from "./LikeButton";
 
 const styles = {
