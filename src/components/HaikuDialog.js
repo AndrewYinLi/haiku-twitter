@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import WrappedButton from "../util/WrappedButton";
+import LikeButton from "./LikeButton";
 
 import dayjs from "dayjs";
 
@@ -10,12 +11,12 @@ import { Link } from "react-router-dom";
 
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import CloseIcon from "@material-ui/icons/Close";
+import ChatIcon from "@material-ui/icons/Chat";
 import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
 
 import { connect } from "react-redux";
@@ -102,6 +103,12 @@ class HaikuDialog extends Component {
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant="body1">{body}</Typography>
+          <LikeButton haikuID={haikuID} {...this.props} />
+          <span>{likeCount} likes</span>
+          <WrappedButton tooltipTitle="Comments">
+            <ChatIcon color="primary" />
+          </WrappedButton>
+          <span>{commentCount} comments</span>
         </Grid>
         <Grid item sm={5}>
           haha

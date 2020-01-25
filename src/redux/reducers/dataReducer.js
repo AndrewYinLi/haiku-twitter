@@ -33,9 +33,13 @@ export default function(state = initialState, action) {
         haiku => haiku.haikuID === action.payload.haikuID
       );
       state.haikus[unlikeIndex] = action.payload;
+      if (state.haiku.haikuID === action.payload.haikuID) {
+        state.haiku = action.payload;
+      }
       return {
         ...state
       };
+
     case DELETE_HAIKU:
       let deleteIndex = state.haikus.findIndex(
         haiku => haiku.haikuID === action.payload
