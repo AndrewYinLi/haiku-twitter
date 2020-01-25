@@ -4,6 +4,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 import WrappedButton from "../../util/WrappedButton";
 import LikeButton from "./LikeButton";
+import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 
 import dayjs from "dayjs";
 
@@ -24,10 +26,6 @@ import { getHaiku } from "../../redux/actions/dataActions";
 
 const styles = themes => ({
   ...themes.spreadable,
-  invisibleSeparator: {
-    border: "none",
-    margin: 4
-  },
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -74,7 +72,8 @@ class HaikuDialog extends Component {
         likeCount,
         commentCount,
         userImage,
-        userHandle
+        userHandle,
+        comments
       },
       UI: { loading }
     } = this.props;
@@ -110,9 +109,9 @@ class HaikuDialog extends Component {
           </WrappedButton>
           <span>{commentCount} comments</span>
         </Grid>
-        <Grid item sm={5}>
-          haha
-        </Grid>
+        <hr className={classes.visibleSeparator} />
+        <CommentForm haikuID={haikuID} />
+        <Comments comments={comments} />
       </Grid>
     );
 
