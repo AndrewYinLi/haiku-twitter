@@ -5,7 +5,8 @@ import {
   UNLIKE_HAIKU,
   DELETE_HAIKU,
   POST_HAIKU,
-  SET_HAIKU
+  SET_HAIKU,
+  SUBMIT_COMMENT
 } from "../types";
 
 const initialState = {
@@ -57,6 +58,14 @@ export default function(state = initialState, action) {
       return {
         ...state,
         haiku: action.payload
+      };
+    case SUBMIT_COMMENT:
+      return {
+        ...state,
+        haiku: {
+          ...state.haiku,
+          comments: [action.payload, ...state.haiku.comments]
+        }
       };
     default:
       return state;

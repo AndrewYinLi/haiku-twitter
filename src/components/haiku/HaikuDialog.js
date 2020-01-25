@@ -22,7 +22,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
 
 import { connect } from "react-redux";
-import { getHaiku } from "../../redux/actions/dataActions";
+import { getHaiku, clearErrors } from "../../redux/actions/dataActions";
 
 const styles = themes => ({
   ...themes.spreadable,
@@ -60,6 +60,7 @@ class HaikuDialog extends Component {
   };
   handleClose = () => {
     this.setState({ open: false });
+    this.props.clearErrors();
   };
 
   render() {
@@ -147,6 +148,7 @@ class HaikuDialog extends Component {
 }
 
 HaikuDialog.propTypes = {
+  clearErrors: PropTypes.func.isRequired,
   getHaiku: PropTypes.func.isRequired,
   haikuID: PropTypes.string.isRequired,
   userHandle: PropTypes.string.isRequired,
@@ -160,7 +162,8 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  getHaiku
+  getHaiku,
+  clearErrors
 };
 
 export default connect(

@@ -16,3 +16,4 @@ export const LIKE_HAIKU = "LIKE_HAIKU";
 export const UNLIKE_HAIKU = "UNLIKE_HAIKU";
 export const DELETE_HAIKU = "DELETE_HAIKU";
 export const POST_HAIKU = "POST_HAIKU";
+export const SUBMIT_COMMENT = "SUBMIT_COMMENT";

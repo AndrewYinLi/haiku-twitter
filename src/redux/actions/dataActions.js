@@ -9,7 +9,8 @@ import {
   CLEAR_ERRORS,
   LOADING_UI,
   SET_HAIKU,
-  STOP_LOADING_UI
+  STOP_LOADING_UI,
+  SUBMIT_COMMENT
 } from "../types";
 import axios from "axios";
 
@@ -54,9 +55,7 @@ export const postHaiku = newHaiku => dispatch => {
         type: POST_HAIKU,
         payload: res.data
       });
-      dispatch({
-        type: CLEAR_ERRORS
-      });
+      dispatch(clearErrors());
     })
     .catch(err => {
       dispatch({
@@ -105,4 +104,22 @@ export const deleteHaiku = haikuID => dispatch => {
 
 export const clearErrors = () => dispatch => {
   dispatch({ type: CLEAR_ERRORS });
+};
+
+export const submitComment = (haikuID, commentData) => dispatch => {
+  axios
+    .post(`/haiku/${haikuID}/comment`, commentData)
+    .then(res => {
+      dispatch({
+        type: SUBMIT_COMMENT,
+        payload: res.data
+      });
+      dispatch({ type: CLEAR_ERRORS });
+    })
+    .catch(err => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };
