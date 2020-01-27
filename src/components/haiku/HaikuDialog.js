@@ -19,7 +19,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import CloseIcon from "@material-ui/icons/Close";
 import ChatIcon from "@material-ui/icons/Chat";
-import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
 
 import { connect } from "react-redux";
 import { getHaiku, clearErrors } from "../../redux/actions/dataActions";
@@ -36,10 +35,6 @@ const styles = themes => ({
     padding: 20
   },
   closeButton: {
-    position: "absolute",
-    left: "90%"
-  },
-  expandButton: {
     position: "absolute",
     left: "90%"
   },
@@ -118,12 +113,8 @@ class HaikuDialog extends Component {
 
     return (
       <Fragment>
-        <WrappedButton
-          onClick={this.handleOpen}
-          tooltipTitle="View comments"
-          tooltipClassName={classes.expandButton}
-        >
-          <UnfoldMoreIcon color="primary" />
+        <WrappedButton onClick={this.handleOpen} tooltipTitle="View comments">
+          <ChatIcon color="primary" />
         </WrappedButton>
         <Dialog
           open={this.state.open}

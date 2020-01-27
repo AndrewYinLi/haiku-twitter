@@ -123,3 +123,21 @@ export const submitComment = (haikuID, commentData) => dispatch => {
       });
     });
 };
+
+export const getUserData = userHandle => dispatch => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get(`/user/${userHandle}`)
+    .then(res => {
+      dispatch({
+        type: SET_HAIKUS,
+        payload: res.data.haikus
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: SET_HAIKUS,
+        payload: null
+      });
+    });
+};

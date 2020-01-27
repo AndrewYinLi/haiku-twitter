@@ -104,11 +104,8 @@ class Haiku extends Component {
           <Typography variant="body1">{body}</Typography>
           <LikeButton haikuID={haikuID} {...this.props} />
           <span>{likeCount} likes</span>
-          <WrappedButton tooltipTitle="Comments">
-            <ChatIcon color="primary" />
-          </WrappedButton>
-          <span>{commentCount} comments</span>
           <HaikuDialog haikuID={haikuID} userHandle={userHandle} />
+          <span>{commentCount} comments</span>
         </CardContent>
       </Card>
     );
