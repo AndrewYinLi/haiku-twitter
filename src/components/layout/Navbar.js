@@ -16,38 +16,46 @@ import Button from "@material-ui/core/Button";
 
 // icons
 import HomeIcon from "@material-ui/icons/Home";
+import FilterVintageIcon from "@material-ui/icons/FilterVintage";
 
 import WrappedButton from "../../util/WrappedButton";
+import { Typography } from "@material-ui/core";
 
 class Navbar extends Component {
   render() {
     const { authenticated } = this.props;
     return (
       <AppBar>
-        <Toolbar className="nav-container">
-          {authenticated ? (
-            <Fragment>
-              <Link to="/">
-                <WrappedButton tooltipTitle="Home">
-                  <HomeIcon color="secondary" />
-                </WrappedButton>
-              </Link>
-              <PostHaiku />
-              <Notifications />
-            </Fragment>
-          ) : (
-            <Fragment>
-              <Button color="inherit" component={Link} to="/">
-                Home
-              </Button>
-              <Button color="inherit" component={Link} to="/login">
-                Log In
-              </Button>
-              <Button color="inherit" component={Link} to="/signup">
-                Sign Up
-              </Button>
-            </Fragment>
-          )}
+        <Toolbar>
+          <FilterVintageIcon color="secondary" />
+          <Typography color="secondary">haiku twitter</Typography>
+          <div className="nav-container">
+            {authenticated ? (
+              <Fragment>
+                <Link to="/">
+                  <WrappedButton tooltipTitle="Home">
+                    <HomeIcon color="secondary" />
+                  </WrappedButton>
+                </Link>
+                <PostHaiku />
+                <Notifications />
+              </Fragment>
+            ) : (
+              <Fragment>
+                <Button color="inherit" component={Link} to="/">
+                  Home
+                </Button>
+                <Button color="inherit" component={Link} to="/login">
+                  Log In
+                </Button>
+                <Button color="inherit" component={Link} to="/signup">
+                  Sign Up
+                </Button>
+              </Fragment>
+            )}
+          </div>
+          <FilterVintageIcon color="primary" />
+          <Typography color="primary">haiku twitter</Typography>
         </Toolbar>
       </AppBar>
     );
