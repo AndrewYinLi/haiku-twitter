@@ -53,6 +53,11 @@ function App() {
               <AuthRoute exact path="/login" component={login} />
               <AuthRoute exact path="/signup" component={signup} />
               <Route exact path="/users/:userHandle" component={user} />
+              <Route
+                exact
+                path="/users/:userHandle/haiku/:haikuID"
+                component={user}
+              />
             </Switch>
           </div>
         </BrowserRouter>

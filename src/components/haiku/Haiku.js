@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
+import withStyles from "@material-ui/core/styles/withStyles";
 import WrappedButton from "../../util/WrappedButton";
 import DeleteHaiku from "./DeleteHaiku";
 import HaikuDialog from "./HaikuDialog";
 
-import withStyles from "@material-ui/core/styles/withStyles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -104,7 +104,11 @@ class Haiku extends Component {
           <Typography variant="body1">{body}</Typography>
           <LikeButton haikuID={haikuID} {...this.props} />
           <span>{likeCount} likes</span>
-          <HaikuDialog haikuID={haikuID} userHandle={userHandle} />
+          <HaikuDialog
+            haikuID={haikuID}
+            userHandle={userHandle}
+            openDialog={this.props.openDialog}
+          />
           <span>{commentCount} comments</span>
         </CardContent>
       </Card>
@@ -117,7 +121,8 @@ Haiku.propTypes = {
   unlikeHaiku: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   haiku: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  openDialog: PropTypes.bool
 };
 
 const mapStateToProps = state => ({

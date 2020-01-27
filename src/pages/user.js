@@ -10,10 +10,17 @@ import { getUserData } from "../redux/actions/dataActions";
 
 class user extends Component {
   state = {
-    profile: null
+    profile: null,
+    haikuIDParam: null
   };
   componentDidMount() {
     const userHandle = this.props.match.params.userHandle;
+    const haikuID = this.props.match.params.haikuID;
+
+    if (haikuID) {
+      this.setState({ haikuIDParam: haikuID });
+    }
+
     this.props.getUserData(userHandle);
     axios
       .get(`/user/${userHandle}`)
@@ -27,13 +34,22 @@ class user extends Component {
 
   render() {
     const { haikus, loading } = this.props.data;
+    const { haikuIDParam } = this.state;
 
     const haikusMarkup = loading ? (
       <p>Loading data...</p>
     ) : haikus === null ? (
       <p>User has no haikus</p>
-    ) : (
+    ) : !haikuIDParam ? (
       haikus.map(haiku => <Haiku key={haiku.haikuID} haiku={haiku} />)
+    ) : (
+      haikus.map(haiku => {
+        if (haiku.haikuID !== haikuIDParam) {
+          return <Haiku key={haiku.haikuID} haiku={haiku} />;
+        } else {
+          return <Haiku key={haiku.haikuID} haiku={haiku} openDialog />;
+        }
+      })
     );
     return (
       <Grid container spacing={10}>

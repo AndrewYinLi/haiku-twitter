@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import PostHaiku from "../haiku/PostHaiku";
 
+import Notifications from "./Notifications";
+
 import PropTypes from "prop-types";
 
 // MUI
@@ -14,7 +16,6 @@ import Button from "@material-ui/core/Button";
 
 // icons
 import HomeIcon from "@material-ui/icons/Home";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 
 import WrappedButton from "../../util/WrappedButton";
 
@@ -32,9 +33,8 @@ class Navbar extends Component {
                   <HomeIcon color="secondary" />
                 </WrappedButton>
               </Link>
-              <WrappedButton tooltipTitle="Notifications">
-                <NotificationsIcon color="secondary" />
-              </WrappedButton>
+
+              <Notifications />
             </Fragment>
           ) : (
             <Fragment>
