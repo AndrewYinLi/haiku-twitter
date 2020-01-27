@@ -75,7 +75,7 @@ class Notifications extends Component {
               {icon}
               <Typography
                 component={Link}
-                color="extPrimary"
+                color="inherit"
                 variant="body1"
                 to={`/users/${not.recipient}/haiku/${not.haikuID}`}
               >

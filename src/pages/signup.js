@@ -73,7 +73,7 @@ class signup extends Component {
         <Grid item sm>
           <img src={AppIcon} alt="cherry blossom" className={classes.image} />
           <Typography variant="h2" className={classes.pageTitle}>
-            Signup
+            Sign Up
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
@@ -85,6 +85,18 @@ class signup extends Component {
               helperText={errors.email}
               error={errors.email ? true : false}
               value={this.state.email}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              id="userHandle"
+              name="userHandle"
+              type="text"
+              label="Username"
+              className={classes.textField}
+              helperText={errors.userHandle}
+              error={errors.userHandle ? true : false}
+              value={this.state.userHandle}
               onChange={this.handleChange}
               fullWidth
             />
@@ -112,18 +124,7 @@ class signup extends Component {
               onChange={this.handleChange}
               fullWidth
             />
-            <TextField
-              id="userHandle"
-              name="userHandle"
-              type="text"
-              label="Username"
-              className={classes.textField}
-              helperText={errors.userHandle}
-              error={errors.userHandle ? true : false}
-              value={this.state.userHandle}
-              onChange={this.handleChange}
-              fullWidth
-            />
+
             {errors.general && (
               <Typography variant="body2" className={classes.customError}>
                 {errors.general}

@@ -19,9 +19,6 @@ import WrappedButton from "../../util/WrappedButton";
 
 const styles = theme => ({
   ...theme.spreadable
-  // button: {
-  //   float: "right"
-  // }
 });
 
 class EditDetails extends Component {
@@ -74,13 +71,9 @@ class EditDetails extends Component {
     return (
       <div>
         <Fragment>
-          <WrappedButton
-            tooltipTitle="Edit Details"
-            onClick={this.handleOpen}
-            buttonClassName={classes.button}
-          >
-            <EditIcon color="primary" />
-          </WrappedButton>
+          <Button onClick={this.handleOpen} className={classes.button}>
+            <EditIcon color="primary" /> Edit Details
+          </Button>
 
           <Dialog
             open={this.state.open}
@@ -88,7 +81,7 @@ class EditDetails extends Component {
             fullWidth
             maxWidth="sm"
           >
-            <DialogTitle>Edit your details</DialogTitle>
+            <DialogTitle>Edit Details</DialogTitle>
             <DialogContent>
               <form>
                 <TextField

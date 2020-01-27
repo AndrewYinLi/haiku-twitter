@@ -95,7 +95,7 @@ class Haiku extends Component {
             to={`/users/${userHandle}`}
             color="primary"
           >
-            {userHandle}
+            @{userHandle}
           </Typography>
           {deleteButton}
           <Typography variant="body2" color="textPrimary">

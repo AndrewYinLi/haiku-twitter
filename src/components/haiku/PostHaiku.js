@@ -71,7 +71,7 @@ class PostHaiku extends Component {
       classes,
       UI: { loading }
     } = this.props;
-
+    const test = "5 syllables\n7 syllables\n5 syllables";
     return (
       <Fragment>
         <WrappedButton onClick={this.handleOpen} tooltipTitle="Post a haiku!">
@@ -99,9 +99,7 @@ class PostHaiku extends Component {
                 label="Haiku"
                 multiline
                 rows="3"
-                placeholder="5
-                7
-                5"
+                placeholder={test}
                 error={errors.body ? true : false}
                 helperText={errors.body}
                 className={classes.textField}

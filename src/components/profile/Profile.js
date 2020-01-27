@@ -112,18 +112,22 @@ class Profile extends Component {
               )}
               <CalendarToday color="primary" />{" "}
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
+              <EditDetails />
+              <Button onClick={this.handleLogout} className={classes.button}>
+                <KeyboardReturn color="primary" />
+                Logout
+              </Button>
             </div>
-
-            <WrappedButton tooltipTitle="Logout" onClick={this.handleLogout}>
-              <KeyboardReturn color="primary" />
-            </WrappedButton>
-            <EditDetails />
           </div>
         </Paper>
       ) : (
         <Paper className={classes.paper}>
-          <Typography component={"span"} variant="body2" align="center">
-            No profile found, please login!
+          <Typography variant="body2" align="center">
+            Sign up or log in
+            <br />
+            using the buttons below
+            <br />
+            to tweet some haikus
             <div className={classes.buttons}>
               <Button
                 variant="contained"
@@ -131,7 +135,7 @@ class Profile extends Component {
                 component={Link}
                 to="/login"
               >
-                Login
+                Log In
               </Button>
               <Button
                 variant="contained"
@@ -139,7 +143,7 @@ class Profile extends Component {
                 component={Link}
                 to="/signup"
               >
-                Signup
+                Sign Up
               </Button>
             </div>
           </Typography>

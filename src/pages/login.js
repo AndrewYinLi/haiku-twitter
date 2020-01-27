@@ -65,7 +65,7 @@ class login extends Component {
         <Grid item sm>
           <img src={AppIcon} alt="cherry blossom" className={classes.image} />
           <Typography variant="h2" className={classes.pageTitle}>
-            Login
+            Log In
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
