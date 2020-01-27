@@ -1,15 +1,15 @@
 export default {
   palette: {
     primary: {
-      main: "#fff3e0",
-      light: "#ffffff",
-      dark: "#ccc0ae",
-      contrastText: "#000000"
-    },
-    secondary: {
       main: "#f8bbd0",
       light: "#ffeeff",
       dark: "#c48b9f",
+      contrastText: "#000000"
+    },
+    secondary: {
+      main: "#ffeeff",
+      light: "#fff",
+      dark: "#ffeeff",
       contrastText: "#000000"
     }
   },
@@ -21,7 +21,9 @@ export default {
       textAlign: "center"
     },
     image: {
-      margin: "20px auto 20px auto"
+      margin: "20px auto 20px auto",
+      width: "256px",
+      height: "256px"
     },
     pageTitle: {
       margin: "10px auto 10px auto"
@@ -31,6 +33,7 @@ export default {
     },
     button: {
       marginTop: 20,
+      marginBottom: 20,
       position: "relative"
     },
     customError: {

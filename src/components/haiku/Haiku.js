@@ -93,12 +93,12 @@ class Haiku extends Component {
             variant="h5"
             component={Link}
             to={`/users/${userHandle}`}
-            color="secondary"
+            color="primary"
           >
             {userHandle}
           </Typography>
           {deleteButton}
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="textPrimary">
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant="body1">{body}</Typography>

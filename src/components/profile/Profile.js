@@ -78,7 +78,7 @@ class Profile extends Component {
                 onClick={this.handleEditPicture}
                 buttonClassName="button"
               >
-                <EditIcon color="secondary"></EditIcon>
+                <EditIcon color="primary"></EditIcon>
               </WrappedButton>
             </div>
             <hr />
@@ -115,7 +115,7 @@ class Profile extends Component {
             </div>
 
             <WrappedButton tooltipTitle="Logout" onClick={this.handleLogout}>
-              <KeyboardReturn color="secondary" />
+              <KeyboardReturn color="primary" />
             </WrappedButton>
             <EditDetails />
           </div>
@@ -127,7 +127,7 @@ class Profile extends Component {
             <div className={classes.buttons}>
               <Button
                 variant="contained"
-                color="primary"
+                color="secondary"
                 component={Link}
                 to="/login"
               >
@@ -135,7 +135,7 @@ class Profile extends Component {
               </Button>
               <Button
                 variant="contained"
-                color="secondary"
+                color="primary"
                 component={Link}
                 to="/signup"
               >

@@ -52,7 +52,7 @@ class DeleteHaiku extends Component {
           onClick={this.handleOpen}
           buttonClassName={classes.deleteButton}
         >
-          <DeleteOutlineIcon color="secondary" />
+          <DeleteOutlineIcon color="primary" />
         </WrappedButton>
         <Dialog
           open={this.state.open}
@@ -67,7 +67,7 @@ class DeleteHaiku extends Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.deleteHaiku} color="secondary">
+            <Button onClick={this.deleteHaiku} color="primary">
               Delete
             </Button>
           </DialogActions>

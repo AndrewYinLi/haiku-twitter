@@ -112,7 +112,7 @@ class HaikuDialog extends Component {
             @{userHandle}
           </Typography>
           <hr className={classes.invisibleSeparator} />
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="textPrimary">
             {dayjs(createdAt).format("h:mm a, MMM DD YYYY")}
           </Typography>
           <hr className={classes.invisibleSeparator} />

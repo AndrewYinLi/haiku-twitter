@@ -79,7 +79,7 @@ class EditDetails extends Component {
             onClick={this.handleOpen}
             buttonClassName={classes.button}
           >
-            <EditIcon color="secondary" />
+            <EditIcon color="primary" />
           </WrappedButton>
 
           <Dialog
@@ -126,7 +126,7 @@ class EditDetails extends Component {
               </form>
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.handleClose} color="secondary">
+              <Button onClick={this.handleClose} color="primary">
                 Cancel
               </Button>
               <Button onClick={this.handleSubmit} color="primary">
