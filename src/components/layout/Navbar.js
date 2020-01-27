@@ -21,6 +21,8 @@ import FilterVintageIcon from "@material-ui/icons/FilterVintage";
 import WrappedButton from "../../util/WrappedButton";
 import { Typography } from "@material-ui/core";
 
+import GitHubButton from "react-github-btn";
+
 class Navbar extends Component {
   render() {
     const { authenticated } = this.props;
@@ -54,8 +56,15 @@ class Navbar extends Component {
               </Fragment>
             )}
           </div>
-          <FilterVintageIcon color="primary" />
-          <Typography color="primary">haiku twitter</Typography>
+
+          <GitHubButton
+            href="https://github.com/AndrewYinLi/haiku-twitter"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star AndrewYinLi/haiku-twitter on GitHub"
+          >
+            Star
+          </GitHubButton>
         </Toolbar>
       </AppBar>
     );
