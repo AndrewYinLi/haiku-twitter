@@ -53,9 +53,9 @@ class Notifications extends Component {
               <NotificationsIcon />
             </Badge>
           ))
-        : (notificationsIcon = <NotificationsIcon color="inherit" />);
+        : (notificationsIcon = <NotificationsIcon color="secondary" />);
     } else {
-      notificationsIcon = <NotificationsIcon color="inherit" />;
+      notificationsIcon = <NotificationsIcon color="secondary" />;
     }
     let notificationsMarkup =
       notifications && notifications.length > 0 ? (
@@ -75,7 +75,7 @@ class Notifications extends Component {
               {icon}
               <Typography
                 component={Link}
-                color="default"
+                color="extPrimary"
                 variant="body1"
                 to={`/users/${not.recipient}/haiku/${not.haikuID}`}
               >
