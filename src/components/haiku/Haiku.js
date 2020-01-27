@@ -101,7 +101,9 @@ class Haiku extends Component {
           <Typography variant="body2" color="textPrimary">
             {dayjs(createdAt).fromNow()}
           </Typography>
-          <Typography variant="body1">{body}</Typography>
+          <Typography variant="body1">{body.split("\n")[0]}</Typography>
+          <Typography variant="body1">{body.split("\n")[1]}</Typography>
+          <Typography variant="body1">{body.split("\n")[2]}</Typography>
           <LikeButton haikuID={haikuID} {...this.props} />
           <span>{likeCount} likes</span>
           <HaikuDialog
