@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import Haiku from "../components/haiku/Haiku";
 import StaticProfile from "../components/profile/StaticProfile";
+import HaikuSkeleton from "../util/HaikuSkeleton";
+import ProfileSkeleton from "../util/ProfileSkeleton";
+
 import Grid from "@material-ui/core/Grid";
 
 import { connect } from "react-redux";
@@ -37,7 +40,7 @@ class user extends Component {
     const { haikuIDParam } = this.state;
 
     const haikusMarkup = loading ? (
-      <p>Loading data...</p>
+      <HaikuSkeleton />
     ) : haikus === null ? (
       <p>User has no haikus</p>
     ) : !haikuIDParam ? (
@@ -58,7 +61,7 @@ class user extends Component {
         </Grid>
         <Grid item sm={4} xs={12}>
           {this.state.profile === null ? (
-            <p>Loading...</p>
+            <ProfileSkeleton />
           ) : (
             <StaticProfile profile={this.state.profile} />
           )}

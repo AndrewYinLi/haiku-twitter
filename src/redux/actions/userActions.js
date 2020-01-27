@@ -3,7 +3,6 @@ import {
   SET_ERRORS,
   CLEAR_ERRORS,
   LOADING_UI,
-  SET_AUTHENTICATED,
   SET_UNAUTHENTICATED,
   LOADING_USER,
   MARK_NOTIFICATIONS_READ
@@ -21,6 +20,7 @@ export const loginUser = (userData, history) => dispatch => {
       history.push("/");
     })
     .catch(err => {
+      console.error(err);
       dispatch({
         type: SET_ERRORS,
         payload: err.response.data

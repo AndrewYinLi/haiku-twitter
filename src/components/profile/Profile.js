@@ -22,6 +22,7 @@ import { connect } from "react-redux";
 
 import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 import WrappedButton from "../../util/WrappedButton";
+import ProfileSkeleton from "../../util/ProfileSkeleton";
 
 const styles = theme => ({
   ...theme.spreadable
@@ -145,7 +146,7 @@ class Profile extends Component {
         </Paper>
       )
     ) : (
-      <p>Loading...</p>
+      <ProfileSkeleton />
     );
 
     return profileMarkup;

@@ -50,7 +50,7 @@ class Notifications extends Component {
               }
               color="secondary"
             >
-              <NotificationsIcon />
+              <NotificationsIcon color="secondary" />
             </Badge>
           ))
         : (notificationsIcon = <NotificationsIcon color="secondary" />);

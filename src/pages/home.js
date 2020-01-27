@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import Haiku from "../components/haiku/Haiku";
 import Profile from "../components/profile/Profile";
+import HaikuSkeleton from "../util/HaikuSkeleton";
 
 import { connect } from "react-redux";
 import { getHaikus } from "../redux/actions/dataActions";
@@ -17,7 +18,7 @@ class home extends Component {
     let recentHaikusMarkup = !loading ? (
       haikus.map(haiku => <Haiku key={haiku.haikuID} haiku={haiku} />)
     ) : (
-      <p>Loading...</p>
+      <HaikuSkeleton />
     );
     return (
       <Grid container spacing={10}>
