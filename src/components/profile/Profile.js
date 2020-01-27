@@ -128,25 +128,25 @@ class Profile extends Component {
             using the buttons below
             <br />
             to tweet some haikus
-            <div className={classes.buttons}>
-              <Button
-                variant="contained"
-                color="secondary"
-                component={Link}
-                to="/login"
-              >
-                Log In
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                component={Link}
-                to="/signup"
-              >
-                Sign Up
-              </Button>
-            </div>
           </Typography>
+          <div className={classes.buttons}>
+            <Button
+              variant="contained"
+              color="secondary"
+              component={Link}
+              to="/login"
+            >
+              Log In
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/signup"
+            >
+              Sign Up
+            </Button>
+          </div>
         </Paper>
       )
     ) : (
