@@ -1,5 +1,5 @@
-### Check it out here:
-
 # https://haiku-twitter.firebaseapp.com/
 
-This is the frontend. Backend repository: https://github.com/AndrewYinLi/haiku-twitter-firebase-functions
+Twitter clone, but you can only post haikus.
+
+This is the frontend repository. Backend repository: https://github.com/AndrewYinLi/haiku-twitter-firebase-functions
