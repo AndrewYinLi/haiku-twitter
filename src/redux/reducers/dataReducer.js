@@ -64,7 +64,8 @@ export default function(state = initialState, action) {
         ...state,
         haiku: {
           ...state.haiku,
-          comments: [action.payload, ...state.haiku.comments]
+          comments: [action.payload, ...state.haiku.comments],
+          commentCount: state.haiku.commentCount + 1
         }
       };
     default:
