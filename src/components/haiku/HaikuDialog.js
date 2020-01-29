@@ -117,9 +117,10 @@ class HaikuDialog extends Component {
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant="body1">{body}</Typography>
+
+          <LikeButton haikuID={haikuID} />
+          <span>{likeCount} likes</span>
           {
-            // <LikeButton haikuID={haikuID} />
-            // <span>{likeCount} likes</span>
             // <WrappedButton tooltipTitle="Comments">
             //   <ChatIcon color="primary" />
             // </WrappedButton>

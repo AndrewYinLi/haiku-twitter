@@ -35,7 +35,7 @@ export default function(state = initialState, action) {
       );
       state.haikus[unlikeIndex] = action.payload;
       if (state.haiku.haikuID === action.payload.haikuID) {
-        state.haiku = action.payload;
+        state.haiku = { ...state.haiku, ...action.payload };
       }
       return {
         ...state
