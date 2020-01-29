@@ -3,6 +3,8 @@
 Twitter clone, but you can only post haikus.
 
 ```
+npm install
+
 npm run build
 
 firebase login
